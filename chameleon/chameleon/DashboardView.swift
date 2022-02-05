@@ -61,10 +61,12 @@ struct CheckinsListView: View {
 
 struct DashboardView: View {
     
+    @State private var isActive: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
-                HStack{
+                HStack {
                     if #available(iOS 15.0, *) {
                         Image(uiImage: .checkmark)
                             .clipShape(Circle())
@@ -86,14 +88,13 @@ struct DashboardView: View {
                 Spacer(minLength: 16)
                 CheckinsListView()
             }
-            .navigationTitle(Text("VEEV"))
+            .navigationTitle(!isActive ? "VEEV" : "")
             .navigationBarHidden(false)
+            .navigationBarBackButtonHidden(false)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarColor(.red)
             .toolbar {
-                Button("Settings") {
-                    print("settings pressed")
-                }
+                NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -102,6 +103,7 @@ struct DashboardView: View {
         })
     }
 }
+
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {

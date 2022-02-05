@@ -8,23 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var isAuth = false
+    
     var body: some View {
-        ZStack {
-            Color.pink.ignoresSafeArea()
-            VStack(alignment: .leading) {
-                Text("VEEV")
-                    .font(.title)
-                    .foregroundColor(.white)
-                HStack {
-                    Text("Checkins")
-                        .font(.subheadline)
-                    Spacer()
-                    Text("Bay Area")
-                        .font(.subheadline)
-                }
-            }
-            .padding()
-            .accentColor(.white)
+        if isAuth {
+            DashboardView()
+        } else {
+            LandingView(isAuth: $isAuth)
         }
     }
 }

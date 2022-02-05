@@ -14,6 +14,9 @@
 		282AAC3F27A424E3003769BA /* chameleonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282AAC3E27A424E3003769BA /* chameleonTests.swift */; };
 		282AAC4927A424E4003769BA /* chameleonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282AAC4827A424E4003769BA /* chameleonUITests.swift */; };
 		282AAC4B27A424E4003769BA /* chameleonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282AAC4A27A424E4003769BA /* chameleonUITestsLaunchTests.swift */; };
+		286F00F227ADE5F7006FFF84 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286F00F127ADE5F7006FFF84 /* SettingsView.swift */; };
+		2896B55527AE000800A2748A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2896B55427AE000800A2748A /* LoginView.swift */; };
+		2896B55727AE033500A2748A /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2896B55627AE033500A2748A /* QRCode.swift */; };
 		28B8812C27A926B40061E29A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8812B27A926B40061E29A /* DashboardView.swift */; };
 		28B8812E27A948470061E29A /* NavBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8812D27A948470061E29A /* NavBarModifier.swift */; };
 		28B8813027A948B80061E29A /* View+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8812F27A948B80061E29A /* View+NavBar.swift */; };
@@ -48,6 +51,10 @@
 		282AAC4427A424E3003769BA /* chameleonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chameleonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		282AAC4827A424E4003769BA /* chameleonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chameleonUITests.swift; sourceTree = "<group>"; };
 		282AAC4A27A424E4003769BA /* chameleonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chameleonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		286F00F127ADE5F7006FFF84 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2896B55427AE000800A2748A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2896B55627AE033500A2748A /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		2896B55827AE28F200A2748A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		28B8812B27A926B40061E29A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		28B8812D27A948470061E29A /* NavBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarModifier.swift; sourceTree = "<group>"; };
 		28B8812F27A948B80061E29A /* View+NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavBar.swift"; sourceTree = "<group>"; };
@@ -102,10 +109,14 @@
 		282AAC2C27A424E1003769BA /* chameleon */ = {
 			isa = PBXGroup;
 			children = (
+				2896B55827AE28F200A2748A /* Info.plist */,
 				282AAC2D27A424E1003769BA /* chameleonApp.swift */,
 				282AAC2F27A424E1003769BA /* ContentView.swift */,
+				2896B55427AE000800A2748A /* LoginView.swift */,
 				28B8813127A94A1E0061E29A /* LandingView.swift */,
+				2896B55627AE033500A2748A /* QRCode.swift */,
 				28B8812B27A926B40061E29A /* DashboardView.swift */,
+				286F00F127ADE5F7006FFF84 /* SettingsView.swift */,
 				28B8812D27A948470061E29A /* NavBarModifier.swift */,
 				28B8812F27A948B80061E29A /* View+NavBar.swift */,
 				282AAC3127A424E3003769BA /* Assets.xcassets */,
@@ -269,11 +280,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286F00F227ADE5F7006FFF84 /* SettingsView.swift in Sources */,
 				28B8813227A94A1E0061E29A /* LandingView.swift in Sources */,
 				28B8812E27A948470061E29A /* NavBarModifier.swift in Sources */,
 				28B8813027A948B80061E29A /* View+NavBar.swift in Sources */,
 				282AAC3027A424E1003769BA /* ContentView.swift in Sources */,
+				2896B55727AE033500A2748A /* QRCode.swift in Sources */,
 				282AAC2E27A424E1003769BA /* chameleonApp.swift in Sources */,
+				2896B55527AE000800A2748A /* LoginView.swift in Sources */,
 				28B8812C27A926B40061E29A /* DashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +452,7 @@
 				DEVELOPMENT_TEAM = 2VH6P737U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = chameleon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -468,6 +483,7 @@
 				DEVELOPMENT_TEAM = 2VH6P737U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = chameleon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
