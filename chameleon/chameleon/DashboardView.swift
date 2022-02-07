@@ -64,40 +64,37 @@ struct DashboardView: View {
     @State private var isActive: Bool = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                HStack {
-                    if #available(iOS 15.0, *) {
-                        Image(uiImage: .checkmark)
-                            .clipShape(Circle())
-                            .frame(width: 100, height: 100, alignment: .leading)
-                            .overlay {
-                                Circle().stroke(.gray, lineWidth: 4)
-                            }
-                            .shadow(radius: 7.0)
-                            .padding()
-                        
-                        Spacer()
-                        Text("Organization")
-                            .padding()
-                    } else {
-                        Text("no go")
-                    }
+        VStack {
+            HStack {
+                if #available(iOS 15.0, *) {
+                    Image(uiImage: .checkmark)
+                        .clipShape(Circle())
+                        .frame(width: 100, height: 100, alignment: .leading)
+                        .overlay {
+                            Circle().stroke(.gray, lineWidth: 4)
+                        }
+                        .shadow(radius: 7.0)
+                        .padding()
+                    
+                    Spacer()
+                    Text("Organization")
+                        .padding()
+                } else {
+                    Text("no go")
                 }
-                .padding()
-                Spacer(minLength: 16)
-                CheckinsListView()
             }
-            .navigationTitle(!isActive ? "VEEV" : "")
-            .navigationBarHidden(false)
-            .navigationBarBackButtonHidden(false)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarColor(.red)
-            .toolbar {
-                NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)
-            }
+            .padding()
+            Spacer(minLength: 16)
+            CheckinsListView()
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationTitle(!isActive ? "VEEV" : "")
+        .navigationBarHidden(false)
+        .navigationBarBackButtonHidden(false)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.red)
+        .toolbar {
+            NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)
+        }
         .onAppear(perform: {
             print("on appear")
         })

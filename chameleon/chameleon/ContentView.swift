@@ -12,11 +12,16 @@ struct ContentView: View {
     @State var isAuth = false
     
     var body: some View {
-        if isAuth {
-            DashboardView()
-        } else {
-            LandingView(isAuth: $isAuth)
+        NavigationView {
+            if isAuth {
+                DashboardView().transition(.asymmetric(insertion: .identity, removal: .opacity))
+                    .statusBarStyle(.lightContent)
+            } else {
+                LandingView(isAuth: $isAuth)
+                    .statusBarStyle(.lightContent)
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
