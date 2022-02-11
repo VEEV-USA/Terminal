@@ -5,43 +5,8 @@
 //  Created by Dare on 2/10/22.
 //
 
-//MARK: TODO
-/*
- normalize data models
- persist to local storage
- implement caching system
- */
-
-/* Login response
- {  "type": "sometype",
-    "current_user":
-    {
-            "ident_token": "12345"
- 
-    },
-    "merchant_information":
-    {
-        
- 
-    },
-    
- }
- 
- */
-
 import Foundation
 import SwiftUI
-
-
-protocol ActionCableDelegate {
-    func cable(_ actionCable: ActionCable, response data: Data)
-}
-
-struct ActionCableEvent: Encodable {
-    let command: String
-    let identifier: [String:String]
-}
-
 
 final class ActionCable: WebSocket {
     
