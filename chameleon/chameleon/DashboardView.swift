@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Checkin: Decodable, Identifiable {
+struct CheckinModel: Decodable, Identifiable {
     let id = UUID()
     let username: String
     let date: Date
@@ -16,7 +16,7 @@ struct Checkin: Decodable, Identifiable {
 
 class CheckinsViewModel: ObservableObject {
     
-    @Published var checkins: [Checkin] = [Checkin]()
+    @Published var checkins: [CheckinModel] = [CheckinModel]()
     
     func fetchCheckins() {
         print("fetch checkins")
@@ -60,9 +60,16 @@ struct CheckinsListView: View {
 }
 
 struct DashboardView: View {
+    let socket: ActionCable = .init(withUri: Bundle.main.websocketURL)
     
     @State private var isActive: Bool = false
+    @State private var isOverlayVisible = false
     
+    private func initialize() {
+        self.socket.delegate = self
+        self.socket.subscribe(toChannel: "CheckinChannel", sessionId: "test123")
+    }
+
     var body: some View {
         VStack {
             HStack {
@@ -76,6 +83,10 @@ struct DashboardView: View {
                         .shadow(radius: 7.0)
                         .padding()
                     
+                    
+                    if isOverlayVisible {
+                        VerifiedAnimation(isFinished: $isOverlayVisible)
+                    }
                     Spacer()
                     Text("Organization")
                         .padding()
@@ -97,6 +108,10 @@ struct DashboardView: View {
         }
         .onAppear(perform: {
             print("on appear")
+            withAnimation {
+                self.isOverlayVisible.toggle()
+            }
+            initialize()
         })
     }
 }
