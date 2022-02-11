@@ -12,6 +12,10 @@ extension Bundle {
       return object(forInfoDictionaryKey: "apiBaseURL") as? String ?? ""
     }
     
+    var websocketURL: String {
+      return object(forInfoDictionaryKey: "websocketURL") as? String ?? ""
+    }
+    
     var releaseVersion: String {
         let nsObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject
         let version = nsObject as! String
