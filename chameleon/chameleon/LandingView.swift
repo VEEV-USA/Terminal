@@ -16,6 +16,7 @@ struct LandingView: View {
         ZStack {
             if showLoginView {
                 LoginView(isAuth: $isAuth)
+                    .statusBarStyle(.darkContent)
             } else {
                 Color.red.ignoresSafeArea()
                 VStack {
@@ -32,8 +33,7 @@ struct LandingView: View {
                             .font(.system(size: 24.0))
                             .fontWeight(.medium)
                     }
-                    .frame(width: 150.0, height: 30.0, alignment: .center)
-                    .padding()
+                    .frame(width: 150.0, height: 50.0, alignment: .center)
                     .foregroundColor(.black)
                     .background(Color.white)
                     .cornerRadius(5)
