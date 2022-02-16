@@ -8,20 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var isAuth = false
-    
+    @Environment(\.presentationMode) var presentation
+    @EnvironmentObject private var authService: AuthService
+
     var body: some View {
-        NavigationView {
-            if isAuth {
-                DashboardView().transition(.asymmetric(insertion: .identity, removal: .opacity))
-                    .statusBarStyle(.lightContent)
-            } else {
-                LandingView(isAuth: $isAuth)
-                    .statusBarStyle(.lightContent)
+        LandingView()
+            .fullScreenCover(isPresented: $authService.isAuth, onDismiss: nil) {
+                DashboardView()
             }
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -34,4 +28,8 @@ struct ContentView_Previews: PreviewProvider {
             ContentView()
         }
     }
+}
+
+class AuthService: ObservableObject {
+    @Published var isAuth: Bool = false
 }
