@@ -9,15 +9,31 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject private var authService: AuthService
+    
+    private func signout() {
+        let entities = ["User", "Merchant", "Checkin"]
+        entities.forEach { entity in
+            Persistence.sharedManager.clear(entity: entity)
+        }
+        DispatchQueue.main.async {
+            self.authService.isAuth = false
+        }
+    }
+    
+    private func clearPersistentStore() {}
         
     var body: some View {
         Form {
             Section {
                 Button("Sign out") {
-                    print("sign out pressed")
+                    signout()
                 }
                 .foregroundColor(.black)
+            } footer: {
+                Text("v\(Bundle.main.releaseVersion) build \(Bundle.main.buildVersion)")
+                    .foregroundColor(.gray)
             }
         }
         .navigationTitle(Text("Settings"))
