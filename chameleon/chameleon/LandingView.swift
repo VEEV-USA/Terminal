@@ -9,14 +9,12 @@ import SwiftUI
 
 struct LandingView: View {
 
-    @Binding var isAuth: Bool
     @State private var showLoginView = false
     
     var body: some View {
         ZStack {
             if showLoginView {
-                LoginView(isAuth: $isAuth)
-                    .statusBarStyle(.darkContent)
+                LoginView(isActive: $showLoginView)
             } else {
                 Color.red.ignoresSafeArea()
                 VStack {
@@ -32,8 +30,8 @@ struct LandingView: View {
                         Text("Enter")
                             .font(.system(size: 24.0))
                             .fontWeight(.medium)
+                            .frame(width: 150.0, height: 50.0, alignment: .center)
                     }
-                    .frame(width: 150.0, height: 50.0, alignment: .center)
                     .foregroundColor(.black)
                     .background(Color.white)
                     .cornerRadius(5)
