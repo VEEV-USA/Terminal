@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2814DECE27B502150089FEB7 /* ActionCable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2814DECD27B502150089FEB7 /* ActionCable.swift */; };
 		282AAC2E27A424E1003769BA /* chameleonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282AAC2D27A424E1003769BA /* chameleonApp.swift */; };
 		282AAC3027A424E1003769BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282AAC2F27A424E1003769BA /* ContentView.swift */; };
 		282AAC3227A424E3003769BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282AAC3127A424E3003769BA /* Assets.xcassets */; };
@@ -15,12 +16,31 @@
 		282AAC4927A424E4003769BA /* chameleonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282AAC4827A424E4003769BA /* chameleonUITests.swift */; };
 		282AAC4B27A424E4003769BA /* chameleonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282AAC4A27A424E4003769BA /* chameleonUITestsLaunchTests.swift */; };
 		286F00F227ADE5F7006FFF84 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286F00F127ADE5F7006FFF84 /* SettingsView.swift */; };
+		2871BBFA27B9D5E000F02C04 /* SessionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2871BBF927B9D5E000F02C04 /* SessionDatasource.swift */; };
+		287FA48227B9DD2900A85D18 /* FetchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FA48127B9DD2900A85D18 /* FetchResult.swift */; };
+		287FA48427B9E01300A85D18 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FA48327B9E01300A85D18 /* FetchError.swift */; };
+		287FA48627BA04F800A85D18 /* MerchantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FA48527BA04F800A85D18 /* MerchantViewModel.swift */; };
+		287FA48827BA204300A85D18 /* CheckinsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FA48727BA204300A85D18 /* CheckinsViewModel.swift */; };
+		287FA48A27BA237400A85D18 /* MerchantDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FA48927BA237400A85D18 /* MerchantDatasource.swift */; };
+		287FA48E27BA417B00A85D18 /* StatusResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287FA48D27BA417B00A85D18 /* StatusResult.swift */; };
 		2896B55527AE000800A2748A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2896B55427AE000800A2748A /* LoginView.swift */; };
 		2896B55727AE033500A2748A /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2896B55627AE033500A2748A /* QRCode.swift */; };
+		28A11F6527B01772005F09C7 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A11F6427B01772005F09C7 /* WebSocket.swift */; };
+		28A11F6727B18A52005F09C7 /* View+Hosting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A11F6627B18A52005F09C7 /* View+Hosting.swift */; };
+		28A11F6927B18CEA005F09C7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A11F6827B18CEA005F09C7 /* Persistence.swift */; };
+		28A11F6C27B18F6C005F09C7 /* VDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28A11F6A27B18F6C005F09C7 /* VDataModel.xcdatamodeld */; };
+		28A11F6E27B198DD005F09C7 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A11F6D27B198DD005F09C7 /* QRCodeView.swift */; };
 		28B8812C27A926B40061E29A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8812B27A926B40061E29A /* DashboardView.swift */; };
 		28B8812E27A948470061E29A /* NavBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8812D27A948470061E29A /* NavBarModifier.swift */; };
 		28B8813027A948B80061E29A /* View+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8812F27A948B80061E29A /* View+NavBar.swift */; };
 		28B8813227A94A1E0061E29A /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8813127A94A1E0061E29A /* LandingView.swift */; };
+		28CC25E427BCF8D7000603EB /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC25E327BCF8D7000603EB /* AuthService.swift */; };
+		28E6936627B1B7C4005FCD93 /* VerifiedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6936527B1B7C4005FCD93 /* VerifiedAnimation.swift */; };
+		28E6936827B1D0F0005FCD93 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6936727B1D0F0005FCD93 /* Bundle+Extension.swift */; };
+		28EAA21527B6D0BB006BEF95 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EAA21427B6D0BB006BEF95 /* SessionViewModel.swift */; };
+		28EAA21727B6DECB006BEF95 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EAA21627B6DECB006BEF95 /* AnyDecodable.swift */; };
+		28EAA21927B6E9FA006BEF95 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EAA21827B6E9FA006BEF95 /* Temp.swift */; };
+		28EAA21B27B6ED24006BEF95 /* ActionCableHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EAA21A27B6ED24006BEF95 /* ActionCableHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2814DECD27B502150089FEB7 /* ActionCable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCable.swift; sourceTree = "<group>"; };
 		282AAC2A27A424E1003769BA /* chameleon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chameleon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282AAC2D27A424E1003769BA /* chameleonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chameleonApp.swift; sourceTree = "<group>"; };
 		282AAC2F27A424E1003769BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,13 +73,32 @@
 		282AAC4827A424E4003769BA /* chameleonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chameleonUITests.swift; sourceTree = "<group>"; };
 		282AAC4A27A424E4003769BA /* chameleonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chameleonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		286F00F127ADE5F7006FFF84 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2871BBF927B9D5E000F02C04 /* SessionDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDatasource.swift; sourceTree = "<group>"; };
+		287FA48127B9DD2900A85D18 /* FetchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchResult.swift; sourceTree = "<group>"; };
+		287FA48327B9E01300A85D18 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
+		287FA48527BA04F800A85D18 /* MerchantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantViewModel.swift; sourceTree = "<group>"; };
+		287FA48727BA204300A85D18 /* CheckinsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinsViewModel.swift; sourceTree = "<group>"; };
+		287FA48927BA237400A85D18 /* MerchantDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantDatasource.swift; sourceTree = "<group>"; };
+		287FA48D27BA417B00A85D18 /* StatusResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResult.swift; sourceTree = "<group>"; };
 		2896B55427AE000800A2748A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2896B55627AE033500A2748A /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		2896B55827AE28F200A2748A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		28A11F6427B01772005F09C7 /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		28A11F6627B18A52005F09C7 /* View+Hosting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hosting.swift"; sourceTree = "<group>"; };
+		28A11F6827B18CEA005F09C7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		28A11F6B27B18F6C005F09C7 /* VModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VModel.xcdatamodel; sourceTree = "<group>"; };
+		28A11F6D27B198DD005F09C7 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		28B8812B27A926B40061E29A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		28B8812D27A948470061E29A /* NavBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarModifier.swift; sourceTree = "<group>"; };
 		28B8812F27A948B80061E29A /* View+NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavBar.swift"; sourceTree = "<group>"; };
 		28B8813127A94A1E0061E29A /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		28CC25E327BCF8D7000603EB /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		28E6936527B1B7C4005FCD93 /* VerifiedAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedAnimation.swift; sourceTree = "<group>"; };
+		28E6936727B1D0F0005FCD93 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		28EAA21427B6D0BB006BEF95 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		28EAA21627B6DECB006BEF95 /* AnyDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDecodable.swift; sourceTree = "<group>"; };
+		28EAA21827B6E9FA006BEF95 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
+		28EAA21A27B6ED24006BEF95 /* ActionCableHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCableHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +126,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2814DECF27B509BA0089FEB7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2814DED027B509DC0089FEB7 /* NavigationBar */,
+				28A11F6627B18A52005F09C7 /* View+Hosting.swift */,
+				28E6936727B1D0F0005FCD93 /* Bundle+Extension.swift */,
+				28E6936527B1B7C4005FCD93 /* VerifiedAnimation.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		2814DED027B509DC0089FEB7 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				28B8812D27A948470061E29A /* NavBarModifier.swift */,
+				28B8812F27A948B80061E29A /* View+NavBar.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		282AAC2127A424E1003769BA = {
 			isa = PBXGroup;
 			children = (
@@ -110,15 +170,31 @@
 			isa = PBXGroup;
 			children = (
 				2896B55827AE28F200A2748A /* Info.plist */,
+				28A11F6A27B18F6C005F09C7 /* VDataModel.xcdatamodeld */,
 				282AAC2D27A424E1003769BA /* chameleonApp.swift */,
 				282AAC2F27A424E1003769BA /* ContentView.swift */,
-				2896B55427AE000800A2748A /* LoginView.swift */,
+				28CC25E327BCF8D7000603EB /* AuthService.swift */,
+				2814DECF27B509BA0089FEB7 /* Util */,
 				28B8813127A94A1E0061E29A /* LandingView.swift */,
+				2896B55427AE000800A2748A /* LoginView.swift */,
+				28EAA21427B6D0BB006BEF95 /* SessionViewModel.swift */,
+				2871BBF927B9D5E000F02C04 /* SessionDatasource.swift */,
+				28A11F6427B01772005F09C7 /* WebSocket.swift */,
+				2814DECD27B502150089FEB7 /* ActionCable.swift */,
+				28EAA21A27B6ED24006BEF95 /* ActionCableHelpers.swift */,
+				28EAA21827B6E9FA006BEF95 /* Temp.swift */,
+				28EAA21627B6DECB006BEF95 /* AnyDecodable.swift */,
 				2896B55627AE033500A2748A /* QRCode.swift */,
+				28A11F6D27B198DD005F09C7 /* QRCodeView.swift */,
 				28B8812B27A926B40061E29A /* DashboardView.swift */,
+				287FA48927BA237400A85D18 /* MerchantDatasource.swift */,
+				287FA48527BA04F800A85D18 /* MerchantViewModel.swift */,
+				287FA48727BA204300A85D18 /* CheckinsViewModel.swift */,
+				28A11F6827B18CEA005F09C7 /* Persistence.swift */,
+				287FA48327B9E01300A85D18 /* FetchError.swift */,
+				287FA48D27BA417B00A85D18 /* StatusResult.swift */,
+				287FA48127B9DD2900A85D18 /* FetchResult.swift */,
 				286F00F127ADE5F7006FFF84 /* SettingsView.swift */,
-				28B8812D27A948470061E29A /* NavBarModifier.swift */,
-				28B8812F27A948B80061E29A /* View+NavBar.swift */,
 				282AAC3127A424E3003769BA /* Assets.xcassets */,
 				282AAC3327A424E3003769BA /* Preview Content */,
 			);
@@ -283,12 +359,32 @@
 				286F00F227ADE5F7006FFF84 /* SettingsView.swift in Sources */,
 				28B8813227A94A1E0061E29A /* LandingView.swift in Sources */,
 				28B8812E27A948470061E29A /* NavBarModifier.swift in Sources */,
+				28E6936827B1D0F0005FCD93 /* Bundle+Extension.swift in Sources */,
+				287FA48827BA204300A85D18 /* CheckinsViewModel.swift in Sources */,
+				2814DECE27B502150089FEB7 /* ActionCable.swift in Sources */,
 				28B8813027A948B80061E29A /* View+NavBar.swift in Sources */,
+				28A11F6C27B18F6C005F09C7 /* VDataModel.xcdatamodeld in Sources */,
+				287FA48E27BA417B00A85D18 /* StatusResult.swift in Sources */,
+				28EAA21B27B6ED24006BEF95 /* ActionCableHelpers.swift in Sources */,
+				28EAA21927B6E9FA006BEF95 /* Temp.swift in Sources */,
+				28CC25E427BCF8D7000603EB /* AuthService.swift in Sources */,
+				287FA48227B9DD2900A85D18 /* FetchResult.swift in Sources */,
+				287FA48627BA04F800A85D18 /* MerchantViewModel.swift in Sources */,
 				282AAC3027A424E1003769BA /* ContentView.swift in Sources */,
+				28EAA21727B6DECB006BEF95 /* AnyDecodable.swift in Sources */,
+				28EAA21527B6D0BB006BEF95 /* SessionViewModel.swift in Sources */,
+				28A11F6727B18A52005F09C7 /* View+Hosting.swift in Sources */,
+				287FA48A27BA237400A85D18 /* MerchantDatasource.swift in Sources */,
 				2896B55727AE033500A2748A /* QRCode.swift in Sources */,
+				287FA48427B9E01300A85D18 /* FetchError.swift in Sources */,
 				282AAC2E27A424E1003769BA /* chameleonApp.swift in Sources */,
+				28E6936627B1B7C4005FCD93 /* VerifiedAnimation.swift in Sources */,
 				2896B55527AE000800A2748A /* LoginView.swift in Sources */,
+				28A11F6E27B198DD005F09C7 /* QRCodeView.swift in Sources */,
+				28A11F6927B18CEA005F09C7 /* Persistence.swift in Sources */,
 				28B8812C27A926B40061E29A /* DashboardView.swift in Sources */,
+				28A11F6527B01772005F09C7 /* WebSocket.swift in Sources */,
+				2871BBFA27B9D5E000F02C04 /* SessionDatasource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,15 +543,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"chameleon/Preview Content\"";
 				DEVELOPMENT_TEAM = 2VH6P737U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = chameleon/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VEEV Check";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -464,7 +562,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hades.chameleon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veev.chameleon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -478,15 +576,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"chameleon/Preview Content\"";
 				DEVELOPMENT_TEAM = 2VH6P737U8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = chameleon/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VEEV Check";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -495,7 +595,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hades.chameleon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veev.chameleon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -639,6 +739,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		28A11F6A27B18F6C005F09C7 /* VDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				28A11F6B27B18F6C005F09C7 /* VModel.xcdatamodel */,
+			);
+			currentVersion = 28A11F6B27B18F6C005F09C7 /* VModel.xcdatamodel */;
+			path = VDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 282AAC2227A424E1003769BA /* Project object */;
 }

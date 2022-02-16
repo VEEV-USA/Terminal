@@ -3,25 +3,34 @@
     <entity name="Checkin" representedClassName="Checkin" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="merchantId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="profileImg" optional="YES" attributeType="String"/>
+        <attribute name="userHandle" optional="YES" attributeType="String"/>
         <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="merchant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Merchant" inverseName="checkins" inverseEntity="Merchant"/>
     </entity>
     <entity name="Merchant" representedClassName="Merchant" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="legalName" optional="YES" attributeType="String"/>
         <attribute name="merchantCode" optional="YES" attributeType="String"/>
-        <attribute name="merchantId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="merchantUserId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="state" optional="YES" attributeType="String"/>
+        <attribute name="zip" optional="YES" attributeType="String"/>
         <relationship name="checkins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Checkin" inverseName="merchant" inverseEntity="Checkin"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="merchant" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="identToken" optional="YES" attributeType="String"/>
         <relationship name="merchant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Merchant" inverseName="user" inverseEntity="Merchant"/>
     </entity>
     <elements>
+        <element name="Checkin" positionX="-36" positionY="27" width="128" height="134"/>
+        <element name="Merchant" positionX="-54" positionY="18" width="128" height="194"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="89"/>
-        <element name="Merchant" positionX="-54" positionY="18" width="128" height="104"/>
-        <element name="Checkin" positionX="-36" positionY="27" width="128" height="89"/>
     </elements>
 </model>

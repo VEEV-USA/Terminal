@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct CheckinModel: Decodable, Identifiable {
     let id = UUID()
@@ -14,17 +15,11 @@ struct CheckinModel: Decodable, Identifiable {
     let time: String
 }
 
-class CheckinsViewModel: ObservableObject {
-    
-    @Published var checkins: [CheckinModel] = [CheckinModel]()
-    
-    func fetchCheckins() {
-        print("fetch checkins")
-    }
+protocol CheckinDelegate {
+    func checkin(_ checkin: Checkin)
 }
 
 struct CheckinsListView: View {
-    
     @ObservedObject var checkinsViewModel = CheckinsViewModel()
     
     var body: some View {
@@ -42,10 +37,10 @@ struct CheckinsListView: View {
             ScrollView {
                 ForEach(checkinsViewModel.checkins) { checkin in
                     HStack {
-                        Text(checkin.username)
+                        Text(checkin.userHandle ?? "n/a")
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Spacer(minLength: 30)
-                        Text(checkin.time)
+                        Text(checkin.createdAt ?? "n/a")
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     Divider()
@@ -53,50 +48,60 @@ struct CheckinsListView: View {
             }
         }
         .padding(32.0)
-        .onAppear(perform: {
-            checkinsViewModel.fetchCheckins()
-        })
+        .onAppear {
+            print("checkin appear")
+            checkinsViewModel.setupActionCable()
+            checkinsViewModel.socket?.delegate = self
+        }
+        .onDisappear {
+            checkinsViewModel.socket?.delegate = nil
+        }
+
     }
 }
 
 struct DashboardView: View {
-    let socket: ActionCable = .init(withUri: Bundle.main.websocketURL)
-    
+    @Environment(\.presentationMode) var presentationMode
+
     @State private var isActive: Bool = false
-    @State private var isOverlayVisible = false
+    @ObservedObject var merchantViewModel = MerchantViewModel()
     
-    private func initialize() {
-        self.socket.delegate = self
-        self.socket.subscribe(toChannel: "CheckinChannel", sessionId: "test123")
-    }
+    let checkinsListView = CheckinsListView()
 
     var body: some View {
+        NavigationView {
         VStack {
             HStack {
-                if #available(iOS 15.0, *) {
-                    Image(uiImage: .checkmark)
-                        .clipShape(Circle())
-                        .frame(width: 100, height: 100, alignment: .leading)
-                        .overlay {
-                            Circle().stroke(.gray, lineWidth: 4)
-                        }
-                        .shadow(radius: 7.0)
-                        .padding()
-                    
-                    
-                    if isOverlayVisible {
-                        VerifiedAnimation(isFinished: $isOverlayVisible)
-                    }
-                    Spacer()
-                    Text("Organization")
-                        .padding()
-                } else {
-                    Text("no go")
+//                if #available(iOS 15.0, *) {
+//                    Image(uiImage: .checkmark)
+//                        .clipShape(Circle())
+//                        .frame(width: 100, height: 100, alignment: .leading)
+//                        .overlay {
+//                            Circle().stroke(.gray, lineWidth: 4)
+//                        }
+//                        .shadow(radius: 7.0)
+//                        .padding()
+//                } else {
+//                        Image(uiImage: .checkmark)
+//                            .clipShape(Circle())
+//                            .frame(width: 100, height: 100, alignment: .leading)
+//                            .shadow(radius: 7.0)
+//                            .padding()
+//                }
+                
+                VerifiedAnimation()
+                Spacer()
+                Text(merchantViewModel.merchant.legalName ?? "")
+                    .fontWeight(.semibold)
+                    .padding()
+                
+                if (merchantViewModel.merchantUserHandle != "" && merchantViewModel.merchantUserHandle != nil) {
+                    QRCodeView(QRString: QRCodeEventType.checkin(merchantUserHandle: merchantViewModel.merchantUserHandle ?? "") ?? "")
                 }
             }
             .padding()
             Spacer(minLength: 16)
-            CheckinsListView()
+            checkinsListView
         }
         .navigationTitle(!isActive ? "VEEV" : "")
         .navigationBarHidden(false)
@@ -107,14 +112,29 @@ struct DashboardView: View {
             NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)
         }
         .onAppear(perform: {
-            print("on appear")
-            withAnimation {
-                self.isOverlayVisible.toggle()
-            }
-            initialize()
+            print("dashboard appear")
         })
+        .onDisappear {
+            print("dashboard disappeared")
+        }}
+        .navigationViewStyle(.stack)
     }
 }
+
+extension CheckinsListView: ActionCableDelegate {
+    func cable(_ actionCable: ActionCable, response data: Data) {
+        do {
+            let decoded = try actionCable.decoder.decode(CheckInPushData.self, from: data)
+            if let _ = decoded.type { return }
+            
+            self.checkinsViewModel.serializeData(data: data)
+        } catch {
+            print("error decoding json =>", error)
+        }
+    }
+}
+
+
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
@@ -123,6 +143,7 @@ struct SwiftUIView_Previews: PreviewProvider {
                 .previewInterfaceOrientation(.landscapeLeft)
         } else {
             // Fallback on earlier versions
+            DashboardView()
         }
     }
 }
