@@ -72,6 +72,7 @@ struct DashboardView: View {
         NavigationView {
         VStack {
             HStack {
+                //TODO: SHOW DEFAULT IMAGE
 //                if #available(iOS 15.0, *) {
 //                    Image(uiImage: .checkmark)
 //                        .clipShape(Circle())
@@ -107,7 +108,8 @@ struct DashboardView: View {
         .navigationBarHidden(false)
         .navigationBarBackButtonHidden(false)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarColor(.red)
+            //TODO: CHANGE NAV BAR COLOR
+        .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
         .toolbar {
             NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)
         }

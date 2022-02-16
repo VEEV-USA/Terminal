@@ -43,7 +43,6 @@ struct LoginView: View {
             self.socket.delegate = nil
             self.authService.isAuth.toggle()
         }
-        
     }
     
     var body: some View {
@@ -79,12 +78,12 @@ struct LoginView: View {
                 })
                 .gesture(longPress)
             
-            Button("Dashboard") {
-                goToDashboard()
-            }
-            Button("back") {
-                self.isActive = false
-            }
+//            Button("Dashboard") {
+//                goToDashboard()
+//            }
+//            Button("back") {
+//                self.isActive = false
+//            }
         }
         .alert(isPresented: $hasError ) {
             Alert(title: Text("Something went wrong"), message: Text("An error occured. Please try again later."), dismissButton: .default(Text("Ok")))

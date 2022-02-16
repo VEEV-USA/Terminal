@@ -16,7 +16,7 @@ struct LandingView: View {
             if showLoginView {
                 LoginView(isActive: $showLoginView)
             } else {
-                Color.red.ignoresSafeArea()
+                Color("VEEV_RED").ignoresSafeArea()
                 VStack {
                     Text("VEEV Checkins")
                         .font(.system(size: 32.0, weight: .semibold, design: .default))

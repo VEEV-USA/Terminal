@@ -37,7 +37,7 @@ struct SettingsView: View {
             }
         }
         .navigationTitle(Text("Settings"))
-        .navigationBarColor(.red)
+        .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
     }
 }
 
