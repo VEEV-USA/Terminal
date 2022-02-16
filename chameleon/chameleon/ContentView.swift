@@ -30,6 +30,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-class AuthService: ObservableObject {
-    @Published var isAuth: Bool = false
-}
