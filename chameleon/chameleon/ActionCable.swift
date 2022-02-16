@@ -63,6 +63,10 @@ final class ActionCable: WebSocket {
     override func handle(_ data: Data) {
         delegate?.cable(self, response: data)
     }
+    
+    deinit {
+        print("deinit Actioncable")
+    }
 }
 
 enum QuantumValue: Decodable {
@@ -107,6 +111,7 @@ struct LoginPushData: Decodable {
     let message: AnyDecodable?
 }
 
-struct CheckInPushData: Codable {
-    let type: String
+struct CheckInPushData: Decodable {
+    let type: String?
+    let message: AnyDecodable?
 }
