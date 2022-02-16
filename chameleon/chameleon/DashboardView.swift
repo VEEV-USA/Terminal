@@ -72,23 +72,23 @@ struct DashboardView: View {
         NavigationView {
         VStack {
             HStack {
-                //TODO: SHOW DEFAULT IMAGE
-//                if #available(iOS 15.0, *) {
-//                    Image(uiImage: .checkmark)
-//                        .clipShape(Circle())
-//                        .frame(width: 100, height: 100, alignment: .leading)
-//                        .overlay {
-//                            Circle().stroke(.gray, lineWidth: 4)
-//                        }
-//                        .shadow(radius: 7.0)
-//                        .padding()
-//                } else {
-//                        Image(uiImage: .checkmark)
-//                            .clipShape(Circle())
-//                            .frame(width: 100, height: 100, alignment: .leading)
-//                            .shadow(radius: 7.0)
-//                            .padding()
-//                }
+                if #available(iOS 15.0, *) {
+                    Image("ic_person")
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .overlay {
+                            Circle().stroke(.gray, lineWidth: 4)
+                        }
+                        .shadow(radius: 7.0)
+                        .padding()
+                } else {
+                        Image(uiImage: .checkmark)
+                            .clipShape(Circle())
+                            .frame(width: 100, height: 100, alignment: .leading)
+                            .shadow(radius: 7.0)
+                            .padding()
+                }
                 
                 VerifiedAnimation()
                 Spacer()
@@ -108,7 +108,6 @@ struct DashboardView: View {
         .navigationBarHidden(false)
         .navigationBarBackButtonHidden(false)
         .navigationBarTitleDisplayMode(.inline)
-            //TODO: CHANGE NAV BAR COLOR
         .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
         .toolbar {
             NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)

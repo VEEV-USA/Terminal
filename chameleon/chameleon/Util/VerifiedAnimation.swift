@@ -15,8 +15,8 @@ struct VerifiedAnimation: View {
     @State private var showCircle = 0
     @State private var showCheckMark = -30
     
-    var width: CGFloat = 100
-    var height: CGFloat = 100
+    var width: CGFloat = 90
+    var height: CGFloat = 90
     
     private func completeAnimation()  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
