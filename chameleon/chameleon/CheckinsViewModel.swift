@@ -9,9 +9,9 @@ import CoreData
 
 class CheckinsViewModel: NSObject, ObservableObject {
     
-    private lazy var fetchedResultsController: NSFetchedResultsController<Merchant> = {
-        let fetchRequest: NSFetchRequest<Merchant> = NSFetchRequest(entityName: "Merchant")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+    private lazy var fetchedResultsController: NSFetchedResultsController<Checkin> = {
+        let fetchRequest: NSFetchRequest<Checkin> = NSFetchRequest(entityName: "Checkin")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
         let FRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: Persistence.sharedManager.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         FRC.delegate = self
         return FRC
@@ -22,7 +22,8 @@ class CheckinsViewModel: NSObject, ObservableObject {
     @Published var checkins: [Checkin] = [Checkin]()
     static var delegate: CheckinDelegate?
     
-    func fetchCheckins() {}
+    func fetchCheckins() {
+    }
     
     func getLocalCheckins() {
         do {
@@ -43,13 +44,19 @@ class CheckinsViewModel: NSObject, ObservableObject {
                 guard let checkinInfo = message["checkin_info"] as? [String:Any]
                 else { print("error with json format"); return }
                 DispatchQueue.main.async {
-                    print(self.checkins.count)
                     let checkin = Persistence.Checkins.normalize(from: checkinInfo)
-                    self.checkins.append(checkin)
+                     self.checkins = [checkin] + self.checkins
                     Persistence.Checkins.checkins.append(checkin)
                     CheckinsViewModel.delegate?.checkin(checkin)
+                    self.saveData(data: checkin)
                 }
             }
+        }
+    }
+    
+    func saveData(data: Checkin) {
+        Persistence.Checkins.persist(checkin: data) { response in
+            Persistence.sharedManager.save()
         }
     }
     
