@@ -117,8 +117,10 @@ extension Persistence {
 extension Persistence {
     class Checkins {
         static var checkins: [Checkin] = [Checkin]()
-        static func persist(checkinData: Dictionary<String, Any>, completion: @escaping () -> Void ) {
-            //MARK: TODO
+        static func persist(checkin: Checkin, completion: @escaping (Checkin) -> Void ) {
+            if checkin.id != -1 {
+                completion(checkin)
+            }
         }
         
         static func normalize(from json: [String:Any]) -> Checkin {

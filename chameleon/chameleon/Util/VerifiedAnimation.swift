@@ -21,7 +21,6 @@ struct VerifiedAnimation: View {
     private func completeAnimation()  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.isOverlayVisible = false
-            print("animation complete")
         }
     }
     
@@ -54,19 +53,8 @@ struct VerifiedAnimation: View {
             drawRing = 1
             showCircle = 1
             showCheckMark = 0
-            
-            completeAnimation()
-            CheckinsViewModel.delegate = self
-        }
-    }
-    
-}
-
-extension VerifiedAnimation: CheckinDelegate {
-    func checkin(_ checkin: Checkin) {
-        withAnimation {
             isOverlayVisible.toggle()
-            completeAnimation()
+//            completeAnimation()
         }
     }
 }

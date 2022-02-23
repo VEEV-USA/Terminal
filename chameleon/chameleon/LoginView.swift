@@ -78,9 +78,9 @@ struct LoginView: View {
                 })
                 .gesture(longPress)
             
-//            Button("Dashboard") {
-//                goToDashboard()
-//            }
+            Button("Dashboard") {
+                goToDashboard()
+            }
 //            Button("back") {
 //                self.isActive = false
 //            }
