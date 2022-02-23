@@ -12,41 +12,41 @@ struct DashboardView: View {
     @State private var isActive: Bool = false
     @ObservedObject var merchantViewModel = MerchantViewModel()
     @ObservedObject var checkinsViewModel = CheckinsViewModel()
-
+    
     @State var selectedUserCheckin: Checkin?
-
+    
     var body: some View {
         NavigationView {
-        VStack {
-            Text(merchantViewModel.merchant.legalName ?? "")
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .padding()
-            HStack {
-                if (selectedUserCheckin != nil) {
-                    CheckinUserInfoView(username: selectedUserCheckin?.userHandle ?? "n/a", timestamp: selectedUserCheckin?.createdAt ?? "n/a")
+            VStack {
+                Text(merchantViewModel.merchant.legalName ?? "")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .padding(8)
+                HStack {
+                    if (selectedUserCheckin != nil) {
+                        CheckinUserInfoView(username: selectedUserCheckin?.userHandle ?? "n/a", timestamp: selectedUserCheckin?.createdAt ?? "n/a", profilePictureUrl: selectedUserCheckin?.profileImg)
+                    }
+                    Spacer()
+                    if (merchantViewModel.merchantUserHandle != "" && merchantViewModel.merchantUserHandle != nil) {
+                        QRCodeView(QRString: QRCodeEventType.checkin(merchantUserHandle: merchantViewModel.merchantUserHandle ?? "") ?? "")
+                    }
                 }
-                Spacer()
-                if (merchantViewModel.merchantUserHandle != "" && merchantViewModel.merchantUserHandle != nil) {
-                    QRCodeView(QRString: QRCodeEventType.checkin(merchantUserHandle: merchantViewModel.merchantUserHandle ?? "") ?? "")
-                }
+                Spacer(minLength: 16)
+                CheckinsListView(checkins: $checkinsViewModel.checkins, selectedUserCheckin: $selectedUserCheckin)
             }
             .padding()
-            Spacer(minLength: 16)
-            CheckinsListView(checkins: $checkinsViewModel.checkins, selectedUserCheckin: $selectedUserCheckin)
-        }
-        .navigationTitle(!isActive ? "VEEV" : "")
-        .navigationBarHidden(false)
-        .navigationBarBackButtonHidden(false)
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
-        .toolbar {
-            NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)
-        }
-        .onAppear(perform: {
-            checkinsViewModel.setupActionCable()
-            checkinsViewModel.socket?.delegate = self
-        })
+            .navigationTitle(!isActive ? "VEEV" : "")
+            .navigationBarHidden(false)
+            .navigationBarBackButtonHidden(false)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
+            .toolbar {
+                NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)
+            }
+            .onAppear(perform: {
+                checkinsViewModel.setupActionCable()
+                checkinsViewModel.socket?.delegate = self
+            })
         }
         .navigationViewStyle(.stack)
     }
