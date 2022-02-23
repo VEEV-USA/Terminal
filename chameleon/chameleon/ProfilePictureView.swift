@@ -18,7 +18,7 @@ struct ProfilePictureView<Placeholder: View>: View {
     
     init(url: URL, @ViewBuilder placeholder: () -> Placeholder) {
         self.placeholder = placeholder()
-        _loader = StateObject(wrappedValue: ImageLoader(url: url))
+        _loader = StateObject(wrappedValue: ImageLoader(url: url, cache: Environment(\.imageCache).wrappedValue))
     }
 
     var body: some View {
@@ -68,11 +68,13 @@ struct ProfilePictureView<Placeholder: View>: View {
 class ImageLoader: ObservableObject {
     @Published var image: UIImage?
     private let url: URL
-    
     private var cancellable: AnyCancellable?
+    
+    private var cache: ImageCache?
 
-    init(url: URL) {
+    init(url: URL, cache: ImageCache? = nil) {
         self.url = url
+        self.cache = cache
     }
 
     deinit {
@@ -80,11 +82,21 @@ class ImageLoader: ObservableObject {
     }
     
     func load() {
+        if let image = cache?[url] {
+                    self.image = image
+                    return
+                }
+        
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
                     .map { UIImage(data: $0.data) }
                     .replaceError(with: nil)
+                    .handleEvents(receiveOutput: { [weak self] in self?.cache(image: $0) })
                     .receive(on: DispatchQueue.main)
                     .sink { [weak self] in self?.image = $0 }
+    }
+    
+    private func cache(image: UIImage?) {
+        image.map { cache?[url] = $0 }
     }
 
     func cancel() {
