@@ -71,7 +71,7 @@ struct LoginView: View {
                         
                         if let _data = data {
                             let sid = try! JSONDecoder().decode(Session.self, from: _data).session_id
-                            self.qrImage = setQRCode(toEncode: QRCodeEventType.login(withSession: sid) ?? "")
+                            self.qrImage = setQRCode(toEncode: QRCodeType.login(withSession: sid) ?? "")
                             self.socket.subscribe(toChannel: "SessionChannel", sessionId: sid)
                         }
                     }.resume()
@@ -81,9 +81,6 @@ struct LoginView: View {
             Button("Dashboard") {
                 goToDashboard()
             }
-//            Button("back") {
-//                self.isActive = false
-//            }
         }
         .alert(isPresented: $hasError ) {
             Alert(title: Text("Something went wrong"), message: Text("An error occured. Please try again later."), dismissButton: .default(Text("Ok")))

@@ -68,6 +68,7 @@ class CheckinsViewModel: NSObject, ObservableObject {
     override init() {
         super.init()
         getLocalCheckins()
+        setupActionCable()
     }
     
     deinit {

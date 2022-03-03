@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QRCodeEventType {
+struct QRCodeType {
     
     static func login(withSession sessionId: String) -> String? {
         if sessionId != "" {
@@ -18,10 +18,19 @@ struct QRCodeEventType {
         return nil
     }
     
-    static func checkin(merchantUserHandle: String) -> String? {
+    static func checkin(from merchantUserHandle: String) -> String? {
         if merchantUserHandle != "" {
             let ver = 1
             let qr_str = "VEEV-Checkin|||\(ver)|||\(merchantUserHandle)"
+            return qr_str
+        }
+        return nil
+    }
+    
+    static func event(from eventName: String) -> String? {
+        if eventName != "" {
+            let ver = 1
+            let qr_str = "VEEV-EventCheckin|||\(ver)|||\(eventName)"
             return qr_str
         }
         return nil

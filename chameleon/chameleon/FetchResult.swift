@@ -10,4 +10,10 @@ enum FetchResult {
     case failure(Error)
 }
 
+enum FetchResults {
+    case success([Dictionary<String,Any>])
+    case failure(Error)
+}
+
 typealias fetchResult = (FetchResult) -> Void
+typealias fetchResults = (FetchResults) -> Void

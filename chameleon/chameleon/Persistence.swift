@@ -22,6 +22,7 @@ class Persistence: ObservableObject {
     }
     
     let container = NSPersistentContainer(name: "VDataModel")
+    let session = NSPersistentContainer(name: "session")
     
     static let dateFormatter: DateFormatter! = {
         let dateFormatter: DateFormatter = DateFormatter()
@@ -132,6 +133,26 @@ extension Persistence {
             checkin.profileImg = json["profile_img"] as? String ?? ""
             checkin.createdAt = json["created_at"] as? String ?? ""
             return checkin
+        }
+    }
+}
+
+
+extension Persistence {
+    class Events {
+        static func normalize(fromJson json: [String:Any]) -> Event {
+            let event = Event(context: Persistence.sharedManager.session.viewContext)
+            event.id = json["id"] as? Int32 ?? -1
+            event.merchantId = json["merchant_id"] as? Int32 ?? -1
+            event.name = json["event_title"] as? String ?? ""
+            event.imageUrl = json["event_image"] as? String ?? ""
+            event.createdAt = json["created_at"] as? String ?? ""
+            event.street = json["address"] as? String ?? ""
+            event.country = json["country"] as? String ?? ""
+            event.state = json["state"] as? String ?? ""
+            event.city = json["city"] as? String ?? ""
+            event.zip = json["zip_code"] as? String ?? ""
+            return event
         }
     }
 }

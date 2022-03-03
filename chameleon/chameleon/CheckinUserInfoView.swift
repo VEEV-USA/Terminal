@@ -28,15 +28,26 @@ struct CheckinUserInfoView: View {
                 placeholder: { Text("loading...") }
             )
                 .padding()
-            VStack {
-                Text("**User:** \(username)").padding(.vertical, 2)
-                Text("**timestamp:** \(_timestamp)").padding(.vertical, 2)
+            VStack(alignment: .leading) {
+                Text("**User:** \(username)").padding(.vertical, 1)
+                Text("**Timestamp:** \(_timestamp)").padding(.vertical, 1)
+                Text("**Phone:** \(_timestamp)").padding(.vertical, 1)
+                
             }
             .padding()
-            VerifiedAnimation()
-                .padding()
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("**Driver's License:**").padding(1)
+                    VerifiedAnimation(width: 20, height: 20)
+                }
+                HStack {
+                    Text("**Credit Card:**").padding(1)
+                    VerifiedAnimation(width: 20, height: 20)
+                }
+            }
+            .padding()
         }
-        .frame(minWidth: 100.0, idealWidth: 200.0, maxWidth: 500.0, minHeight: 100)
+        .frame(minWidth: 100.0, idealWidth: 200.0, maxWidth: 600.0, minHeight: 100)
         .border(Color.black)
     }
 }

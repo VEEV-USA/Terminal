@@ -17,36 +17,53 @@ struct DashboardView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text(merchantViewModel.merchant.legalName ?? "")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .padding(8)
-                HStack {
-                    if (selectedUserCheckin != nil) {
-                        CheckinUserInfoView(username: selectedUserCheckin?.userHandle ?? "n/a", timestamp: selectedUserCheckin?.createdAt ?? "n/a", profilePictureUrl: selectedUserCheckin?.profileImg)
+            ZStack {
+                VStack {
+                    Text(merchantViewModel.merchant.legalName ?? "")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .padding(8)
+                    
+                    HStack {
+                        if (selectedUserCheckin != nil) {
+                            CheckinUserInfoView(username: selectedUserCheckin?.userHandle ?? "n/a", timestamp: selectedUserCheckin?.createdAt ?? "n/a", profilePictureUrl: selectedUserCheckin?.profileImg)
+                        }
+                        Spacer()
+                        if (merchantViewModel.merchantUserHandle != "" && merchantViewModel.merchantUserHandle != nil) {
+                            QRCodeView(QRString: QRCodeType.checkin(from: merchantViewModel.merchantUserHandle ?? "") ?? "")
+                        }
                     }
-                    Spacer()
-                    if (merchantViewModel.merchantUserHandle != "" && merchantViewModel.merchantUserHandle != nil) {
-                        QRCodeView(QRString: QRCodeEventType.checkin(merchantUserHandle: merchantViewModel.merchantUserHandle ?? "") ?? "")
-                    }
+                    Spacer(minLength: 16)
+                    CheckinsListView(checkins: $checkinsViewModel.checkins, selectedUserCheckin: $selectedUserCheckin)
                 }
-                Spacer(minLength: 16)
-                CheckinsListView(checkins: $checkinsViewModel.checkins, selectedUserCheckin: $selectedUserCheckin)
+                .padding()
+                .navigationTitle(!isActive ? "VEEV" : "")
+                .navigationBarHidden(false)
+                .navigationBarBackButtonHidden(false)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
+                .toolbar {
+                    HStack(spacing: 16) {
+                        NavigationLink(destination: EventListView()) {
+                            Image(uiImage: UIImage(named: "calendar") ?? .actions)
+                                .renderingMode(.template)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(minWidth: 20, idealWidth: 30, maxWidth: 30, minHeight: 20, idealHeight:30, maxHeight: 30, alignment: .center)
+                                .colorMultiply(.white)
+                        }
+                        NavigationLink("Settings", destination: SettingsView())
+                    }
+                    
+                }
+                .onAppear(perform: {
+                    checkinsViewModel.socket?.delegate = self
+                    isActive = false
+                })
+                .onDisappear(perform: {
+                    isActive = true
+                })
             }
-            .padding()
-            .navigationTitle(!isActive ? "VEEV" : "")
-            .navigationBarHidden(false)
-            .navigationBarBackButtonHidden(false)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
-            .toolbar {
-                NavigationLink("Settings", destination: SettingsView(), isActive: self.$isActive)
-            }
-            .onAppear(perform: {
-                checkinsViewModel.setupActionCable()
-                checkinsViewModel.socket?.delegate = self
-            })
         }
         .navigationViewStyle(.stack)
     }
