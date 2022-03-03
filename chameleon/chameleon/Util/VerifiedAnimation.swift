@@ -42,7 +42,7 @@ struct VerifiedAnimation: View {
                     .animation(Animation.interpolatingSpring(stiffness: 170, damping: 45).delay(1.0))
                 
                 Image(systemName: "checkmark")
-                    .font(.system(size: self.width/2))
+                    .font(.system(size: self.width/3 * 2) .weight(.semibold))
                     .foregroundColor(.white)
                     .clipShape(Rectangle().offset(x: CGFloat(showCheckMark)))
                     .animation(Animation.interpolatingSpring(stiffness: 145, damping: 25).delay(1.5).speed(1))
