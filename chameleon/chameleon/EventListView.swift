@@ -17,7 +17,7 @@ struct EventListView: View {
             LazyVGrid(columns: threeColumnGrid, spacing: 32) {
                 ForEach(eventsViewModel.events, id: \.self) { event in
                                         let eventTitle = event.name
-                    NavigationLink(destination: EventView(event: event)) {
+                    NavigationLink(destination: EventView(event: event, checkins: $eventsViewModel.checkins)) {
                         VStack {
                             Image("calendar")
                                 .resizable()

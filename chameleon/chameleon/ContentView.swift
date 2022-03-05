@@ -10,12 +10,20 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject private var authService: AuthService
-
+    
     var body: some View {
-        LandingView()
-            .fullScreenCover(isPresented: $authService.isAuth, onDismiss: nil) {
+        //        LandingView()
+        //            .fullScreenCover(isPresented: $authService.isAuth, onDismiss: nil) {
+        //                DashboardView()
+        //            }
+        if (authService.isAuth) {
+            withAnimation {
                 DashboardView()
             }
+        }
+        else {
+            LandingView()
+        }
     }
 }
 

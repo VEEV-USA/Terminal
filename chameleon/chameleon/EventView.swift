@@ -9,7 +9,8 @@ import SwiftUI
 
 struct EventView: View {
     var event: Event
-    
+    @ObservedObject var eventsVM: EventsViewModel = EventsViewModel()
+    @Binding var checkins: [Checkin]
     @State var selectedUserCheckin: Checkin?
     
     var body: some View {
@@ -29,7 +30,8 @@ struct EventView: View {
                 }
             }
             Spacer(minLength: 16)
-//            CheckinsListView(checkins: $checkinsViewModel.checkins, selectedUserCheckin: $selectedUserCheckin)
+            CheckinsListView(checkins: $eventsVM.checkins, selectedUserCheckin: $selectedUserCheckin)
+                .foregroundColor(.black)
         }
         .padding()
         .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
@@ -37,11 +39,31 @@ struct EventView: View {
                 NavigationLink("Settings", destination: SettingsView())
         }
         .foregroundColor(.white)
+        .onAppear {
+            eventsVM.setupActionCable(forEvent: event.name ?? "")
+            eventsVM.socket?.delegate = self
+        }
+        .onDisappear {
+            eventsVM.socket?.delegate = nil
+        }
     }
 }
 
-struct EventView_Previews: PreviewProvider {
-    static var previews: some View {
-        EventView(event: Event())
+extension EventView: ActionCableDelegate {
+    func cable(_ actionCable: ActionCable, response data: Data) {
+        do {
+            let decoded = try actionCable.decoder.decode(CheckInPushData.self, from: data)
+            if let _ = decoded.type { return }
+            self.eventsVM.serializeData(data: data)
+        } catch {
+            print("error decoding json =>", error)
+        }
     }
 }
+
+//
+//struct EventView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EventView(event: Event(), checkins: )
+//    }
+//}
