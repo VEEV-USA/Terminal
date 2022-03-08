@@ -26,7 +26,7 @@ struct EventView: View {
                 }
                 Spacer()
                 if (event.name != nil) {
-                    QRCodeView(QRString: QRCodeType.event(from: event.name!) ?? "")
+                    QRCodeView(QRString: QRCodeType.event(from: event.id) ?? "")
                 }
             }
             Spacer(minLength: 16)

@@ -27,10 +27,10 @@ struct QRCodeType {
         return nil
     }
     
-    static func event(from eventName: String) -> String? {
-        if eventName != "" {
+    static func event(from eventId: Int32) -> String? {
+        if eventId != -1 {
             let ver = 1
-            let qr_str = "VEEV-EventCheckin|||\(ver)|||\(eventName)"
+            let qr_str = "VEEV-EventCheckin|||\(ver)|||\(eventId)"
             return qr_str
         }
         return nil
