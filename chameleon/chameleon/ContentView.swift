@@ -18,7 +18,28 @@ struct ContentView: View {
         //            }
         if (authService.isAuth) {
             withAnimation {
-                DashboardView()
+                NavigationView {
+                    DashboardView()
+                        .navigationBarHidden(false)
+                        .navigationBarBackButtonHidden(false)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarColor(UIColor(named: "VEEV_RED") ?? .red)
+                        .toolbar {
+                            HStack(spacing: 16) {
+                                NavigationLink(destination: EventListView()) {
+                                    Image(uiImage: UIImage(named: "calendar") ?? .actions)
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(minWidth: 20, idealWidth: 30, maxWidth: 30, minHeight: 20, idealHeight:30, maxHeight: 30, alignment: .center)
+                                        .colorMultiply(.white)
+                                }
+                                NavigationLink("Settings", destination: SettingsView())
+                            }
+                            
+                        }
+                }
+                .navigationViewStyle(.stack)
             }
         }
         else {

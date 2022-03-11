@@ -16,7 +16,7 @@ struct DashboardView: View {
     @State var selectedUserCheckin: Checkin?
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack {
                 VStack {
                     Text(merchantViewModel.merchant.legalName ?? "")
@@ -64,8 +64,8 @@ struct DashboardView: View {
                     isActive = true
                 })
             }
-        }
-        .navigationViewStyle(.stack)
+//        }
+//        .navigationViewStyle(.stack)
     }
 }
 
