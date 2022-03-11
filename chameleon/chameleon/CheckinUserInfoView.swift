@@ -24,7 +24,7 @@ struct CheckinUserInfoView: View {
     var body: some View {
         HStack {
             ProfilePictureView(
-                url: URL(string: profilePictureUrl ?? "")!,
+                url: URL(string: profilePictureUrl ?? "http://localhost:5000")!,
                 placeholder: { Text("loading...") }
             )
                 .padding()
