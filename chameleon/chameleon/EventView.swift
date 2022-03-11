@@ -40,8 +40,28 @@ struct EventView: View {
         }
         .foregroundColor(.white)
         .onAppear {
-            eventsVM.setupActionCable(forEvent: event.name ?? "")
+            eventsVM.setupActionCable(forEvent: event)
             eventsVM.socket?.delegate = self
+            eventsVM.getCheckins(eventId: event.id) { result in
+                switch result {
+                case .success(let data):
+                    let checkins = data["checkins"] as! [Dictionary<String, Any>]
+                    for checkin in checkins {
+                        let c = Checkin(context: Persistence.sharedManager.session.viewContext)
+                        c.id = checkin["id"] as? Int32 ?? -1
+                        c.userId = checkin["user_id"] as? Int32 ?? -1
+                        c.userHandle = checkin["user_handle"] as? String ?? ""
+                        c.createdAt = checkin["created_at"] as? String ?? ""
+                        DispatchQueue.main.async {
+                            eventsVM.checkins = [c] + eventsVM.checkins
+                        }
+                    }
+                    break
+                case .failure(let err):
+                    print("error fetching Event Checkins =>", err)
+                    break
+                }
+            }
         }
         .onDisappear {
             eventsVM.socket?.delegate = nil

@@ -143,9 +143,12 @@ extension Persistence {
         static func normalize(fromJson json: [String:Any]) -> Event {
             let event = Event(context: Persistence.sharedManager.session.viewContext)
             event.id = json["id"] as? Int32 ?? -1
+            event.eventId = json["id"] as? Int32 ?? -1
             event.merchantId = json["merchant_id"] as? Int32 ?? -1
             event.name = json["event_title"] as? String ?? ""
             event.imageUrl = json["event_image"] as? String ?? ""
+            event.organizer = json["organizer"] as? String ?? ""
+            event.end_date = json["end_date"] as? String ?? ""
             event.createdAt = json["created_at"] as? String ?? ""
             event.street = json["address"] as? String ?? ""
             event.country = json["country"] as? String ?? ""

@@ -43,6 +43,7 @@
 		28BF4EE227CD19510012D348 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BF4EE127CD19500012D348 /* EventsViewModel.swift */; };
 		28BF4EE427CD1B480012D348 /* EventsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BF4EE327CD1B480012D348 /* EventsDatasource.swift */; };
 		28CC25E427BCF8D7000603EB /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC25E327BCF8D7000603EB /* AuthService.swift */; };
+		28CD52EA27DABA9600AEB247 /* UIImage+JPEG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD52E927DABA9600AEB247 /* UIImage+JPEG.swift */; };
 		28E6936627B1B7C4005FCD93 /* VerifiedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6936527B1B7C4005FCD93 /* VerifiedAnimation.swift */; };
 		28E6936827B1D0F0005FCD93 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6936727B1D0F0005FCD93 /* Bundle+Extension.swift */; };
 		28E6EEE627CDD4B1004A85C8 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6EEE527CDD4B1004A85C8 /* EventListView.swift */; };
@@ -109,6 +110,7 @@
 		28BF4EE127CD19500012D348 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		28BF4EE327CD1B480012D348 /* EventsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDatasource.swift; sourceTree = "<group>"; };
 		28CC25E327BCF8D7000603EB /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		28CD52E927DABA9600AEB247 /* UIImage+JPEG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+JPEG.swift"; sourceTree = "<group>"; };
 		28E6936527B1B7C4005FCD93 /* VerifiedAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedAnimation.swift; sourceTree = "<group>"; };
 		28E6936727B1D0F0005FCD93 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		28E6EEE527CDD4B1004A85C8 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,10 @@
 				28A11F6627B18A52005F09C7 /* View+Hosting.swift */,
 				28E6936727B1D0F0005FCD93 /* Bundle+Extension.swift */,
 				28E6936527B1B7C4005FCD93 /* VerifiedAnimation.swift */,
+				287FA48127B9DD2900A85D18 /* FetchResult.swift */,
+				287FA48327B9E01300A85D18 /* FetchError.swift */,
+				287FA48D27BA417B00A85D18 /* StatusResult.swift */,
+				28CD52E927DABA9600AEB247 /* UIImage+JPEG.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -197,7 +203,6 @@
 				288F67E927C5BF6D005FFE31 /* CheckinRowView.swift */,
 				288F67ED27C5DF4A005FFE31 /* ImageCache.swift */,
 				2896B55427AE000800A2748A /* LoginView.swift */,
-				2871BBF927B9D5E000F02C04 /* SessionDatasource.swift */,
 				28A11F6427B01772005F09C7 /* WebSocket.swift */,
 				2814DECD27B502150089FEB7 /* ActionCable.swift */,
 				28EAA21A27B6ED24006BEF95 /* ActionCableHelpers.swift */,
@@ -205,16 +210,14 @@
 				2896B55627AE033500A2748A /* QRCode.swift */,
 				28A11F6D27B198DD005F09C7 /* QRCodeView.swift */,
 				28B8812B27A926B40061E29A /* DashboardView.swift */,
-				28E6EEE527CDD4B1004A85C8 /* EventListView.swift */,
-				282091CD27D12DC3002B586E /* EventView.swift */,
 				288F67EB27C5CC2E005FFE31 /* CheckinsListView.swift */,
-				287FA48927BA237400A85D18 /* MerchantDatasource.swift */,
 				28A11F6827B18CEA005F09C7 /* Persistence.swift */,
-				287FA48327B9E01300A85D18 /* FetchError.swift */,
-				287FA48D27BA417B00A85D18 /* StatusResult.swift */,
-				287FA48127B9DD2900A85D18 /* FetchResult.swift */,
 				286F00F127ADE5F7006FFF84 /* SettingsView.swift */,
+				282091CD27D12DC3002B586E /* EventView.swift */,
+				28E6EEE527CDD4B1004A85C8 /* EventListView.swift */,
+				2871BBF927B9D5E000F02C04 /* SessionDatasource.swift */,
 				28BF4EE327CD1B480012D348 /* EventsDatasource.swift */,
+				287FA48927BA237400A85D18 /* MerchantDatasource.swift */,
 				287FA48727BA204300A85D18 /* CheckinsViewModel.swift */,
 				287FA48527BA04F800A85D18 /* MerchantViewModel.swift */,
 				28EAA21427B6D0BB006BEF95 /* SessionViewModel.swift */,
@@ -405,6 +408,7 @@
 				287FA48A27BA237400A85D18 /* MerchantDatasource.swift in Sources */,
 				288F67E627C5B42B005FFE31 /* CheckinUserInfoView.swift in Sources */,
 				288F67E827C5B557005FFE31 /* ProfilePictureView.swift in Sources */,
+				28CD52EA27DABA9600AEB247 /* UIImage+JPEG.swift in Sources */,
 				2896B55727AE033500A2748A /* QRCode.swift in Sources */,
 				287FA48427B9E01300A85D18 /* FetchError.swift in Sources */,
 				282AAC2E27A424E1003769BA /* chameleonApp.swift in Sources */,
@@ -575,7 +579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"chameleon/Preview Content\"";
 				DEVELOPMENT_TEAM = 2VH6P737U8;
 				ENABLE_PREVIEWS = YES;
@@ -608,7 +612,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"chameleon/Preview Content\"";
 				DEVELOPMENT_TEAM = 2VH6P737U8;
 				ENABLE_PREVIEWS = YES;
