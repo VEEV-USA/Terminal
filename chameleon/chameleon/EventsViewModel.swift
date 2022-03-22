@@ -24,8 +24,8 @@ class EventsViewModel: NSObject, ObservableObject {
                 DispatchQueue.main.async {
                     let checkin = Persistence.Checkins.normalize(from: checkinInfo)
                      self.checkins = [checkin] + self.checkins
-                    Persistence.Checkins.checkins.append(checkin)
-                    self.saveData(data: checkin)
+//                    Persistence.Checkins.checkins.append(checkin)
+//                    self.saveData(data: checkin)
                 }
             }
         }

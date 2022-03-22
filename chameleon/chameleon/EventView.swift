@@ -51,6 +51,7 @@ struct EventView: View {
                         c.id = checkin["id"] as? Int32 ?? -1
                         c.userId = checkin["user_id"] as? Int32 ?? -1
                         c.userHandle = checkin["user_handle"] as? String ?? ""
+                        c.profileImg = checkin["profile_img"] as? String
                         c.createdAt = checkin["created_at"] as? String ?? ""
                         DispatchQueue.main.async {
                             eventsVM.checkins = [c] + eventsVM.checkins

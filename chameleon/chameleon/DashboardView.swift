@@ -31,6 +31,10 @@ struct DashboardView: View {
                         Spacer()
                         if (merchantViewModel.merchantUserHandle != "" && merchantViewModel.merchantUserHandle != nil) {
                             QRCodeView(QRString: QRCodeType.checkin(from: merchantViewModel.merchantUserHandle ?? "") ?? "")
+                        } else {
+                            Image(uiImage: .actions)
+                                .resizable()
+                                .frame(width: 200, height: 200, alignment: .center)
                         }
                     }
                     Spacer(minLength: 16)

@@ -29,19 +29,19 @@ struct CheckinUserInfoView: View {
             )
                 .padding()
             VStack(alignment: .leading) {
-                Text("**User:** \(username)").padding(.vertical, 1)
-                Text("**Timestamp:** \(_timestamp)").padding(.vertical, 1)
-                Text("**Phone:** \(_timestamp)").padding(.vertical, 1)
+                Text("**User:** \(username)").padding(.vertical, 1).foregroundColor(.black)
+                Text("**Timestamp:** \(_timestamp)").padding(.vertical, 1).foregroundColor(.black)
+                Text("**Phone:** \(_timestamp)").padding(.vertical, 1).foregroundColor(.black)
                 
             }
             .padding()
             VStack(alignment: .leading) {
                 HStack {
-                    Text("**Driver's License:**").padding(1)
+                    Text("**Driver's License:**").padding(1).foregroundColor(.black)
                     VerifiedAnimation(width: 20, height: 20)
                 }
                 HStack {
-                    Text("**Credit Card:**").padding(1)
+                    Text("**Credit Card:**").padding(1).foregroundColor(.black)
                     VerifiedAnimation(width: 20, height: 20)
                 }
             }
